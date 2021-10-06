@@ -27,10 +27,15 @@ function requestProcessor($request)
     case "validate_session":
       return doValidate($request['sessionId']);
   }
+
+  $fp = fopen('logFileUserCreated', 'a');
+  fwrite($fp, $request['message'] . " \r\n");
+  fclose($fp);
+
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
 
 $server->process_requests('requestProcessor');
 exit();
