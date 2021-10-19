@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
 --
--- Host: localhost    Database: USERS
+-- Host: localhost    Database: projectDB
 -- ------------------------------------------------------
 -- Server version	8.0.26-0ubuntu0.20.04.2
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `userID` varchar(30) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(30) NOT NULL,
   `email` varchar(75) DEFAULT NULL,
   `firstName` varchar(25) DEFAULT NULL,
   `lastName` varchar(25) DEFAULT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `users` (
   `make` varchar(50) DEFAULT NULL,
   `model` varchar(50) DEFAULT NULL,
   `year` int (4) DEFAULT NULL,
-  PRIMARY KEY (`userID`, `email`)
+  PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
