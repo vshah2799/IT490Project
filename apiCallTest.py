@@ -1,14 +1,23 @@
 import requests,json;
-import mysql.connector;
+import mysql.connector
+from mysql.connector import Error
 
-cnx = mysql.connector.connect(user='test', password='',
-                              host='127.0.0.1',
-                              database='projectDB')
-cursor = cnx.cursor()
+conn = None
+try:
+    conn = mysql.connector.connect(host='localhost',
+                                    database='projectDB',
+                                    user='vishal',
+                                    password='123')
+    if conn.is_connected():
+        print('Connected to MySQL database')
 
+except Error as e:
+    print(e)
 
-for years in range(10):
-    print(years+2010)
+cursor = conn.cursor()
+
+for years in range(1):
+    print(years+2000)
     yearString = str(years + 2000)
     try:
         makesUrl = 'https://api.nhtsa.gov/products/vehicle/makes?modelYear=' + yearString + '&issueType=r'
@@ -37,23 +46,21 @@ for years in range(10):
             except:
                 print("Error at models")
                 continue
+            count = "1"
             for recalls in recallJson['results']:
                 print("RECALLS")
                 recallString = recalls['Summary']
                 try:
-                   ## INSERT INTO carRecalls (`make`, `model`, `year`, `recallTest`) VALUES ("Honda", "Accord", "20                   ## 18", "Test");
-                    ##query = ("INSERT INTO carRecalls (`make`, `model`, `year`, `recallTest`) VALUES ("%s", "%s", "%s", "%s")")
-                    queryString = ("INSERT INTO carRecalls(make, model, year, recallTest) "
-               "VALUES(%s, %s, %s, %s)")
-                    cursor.execute(queryString, (makeString, modelString, yearString, recallString))
+                    query = ("INSERT INTO carRecalls(make, model, year, recallText) VALUES(%s, %s, %s, %s)")
+                    cursor.execute(query, (makeString, modelString, yearString, recallString))
+                    conn.commit()
                 except:
-                    print("Couldn't put value in")
-
+                    print("NOT IN DB")
 
 
 
 
 
 cursor.close()
-cnx.close()
+
 
