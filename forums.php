@@ -56,8 +56,11 @@ $subject = @$_POST[subject];
 $topic = @$_POST[topic];
 
 if(isset($_POST['submit'])){
-	if($query = mysql_query("INSERT INTO forums ('topic', 'subject') VALUES ('".$topic."','". $subject."')"))
-		echo ="nice";
+	if($query = mysql_query("INSERT INTO forums ('topic', 'subject') VALUES ('".$topic."','". $subject."')")){
+		echo "nice";
+	}else{
+		echo "not nice";
+	}
 	
 }
 
