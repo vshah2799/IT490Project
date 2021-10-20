@@ -13,10 +13,11 @@ for years in yearsJson['results']:
     makesJson = json.loads(makesRequest.text)
     ##print(makesJson['make'])
     for makes in makesJson['results']:
-        ##print(makes['make'])
+       ## print(makes['make'])
         makeString = str(makes['make'])
         modelUrl = 'https://api.nhtsa.gov/products/vehicle/models?modelYear=' + yearString + '&make=' + makeString + '&issueType=r'
         modelRequest = requests.get(modelUrl)
         modelJson = json.loads(modelRequest.text)
-        modelResult = modelJson['results']
-        print(modelJson['model'])
+        for models in modelJson['results']:
+            print(models['model'])
+
