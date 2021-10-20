@@ -2,9 +2,10 @@ import requests,json;
 yearsUrl = 'https://api.nhtsa.gov/products/vehicle/modelYears?issueType=r';
 yearsRequest = requests.get(yearsUrl);
 
-##Turns r into json
+
 yearsJson = json.loads(yearsRequest.text);
-##Goes through x and gets every model year
+
+
 for years in yearsJson['results']:
     print(years['modelYear'])
     yearString = str(years['modelYear'])
@@ -20,4 +21,6 @@ for years in yearsJson['results']:
         modelJson = json.loads(modelRequest.text)
         for models in modelJson['results']:
             print(models['model'])
+            
+
 
