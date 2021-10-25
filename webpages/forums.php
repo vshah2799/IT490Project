@@ -1,3 +1,6 @@
+<?php
+	require mysqlconnect.php;	
+?>
 <html>
 	<head>
 		<title>forums</title>
@@ -52,11 +55,12 @@
 </html>
 
 <?php
-$check = mysql_query("SELECT * FROM topics");
+$check = mysqli_query($mydb."SELECT * FROM topics");
 
-if(mysql_num_rows($check != 1){
-	while($row = mysql_fetch_assoc($check)){
-		
+if(mysqli_num_rows($check != 1){
+	while($row = mysqli_fetch_assoc($check)){
+		echo($row['subject']);
+		echo("<br>");
 	}
 
 }else{
@@ -66,8 +70,9 @@ if(mysql_num_rows($check != 1){
 $subject = @$_POST[subject];
 $topic = @$_POST[topic];
 
-if(isset($_POST['submit'])){
-	if($query = mysql_query("INSERT INTO forums ('topic', 'subject') VALUES ('".$topic."','". $subject."')")){
+if(isset($_POST['button1'])){
+	echo "$subject";
+	if($query = mysql_query($mydb,"INSERT INTO `forums` (`username`,`topic`, 'subject') VALUES ('sample','$topic','$subject',5)")){
 		echo "nice";
 	}else{
 		echo "not nice";
