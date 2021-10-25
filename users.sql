@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `userID` varchar(30) NOT NULL,
-  `email` varchar(75) DEFAULT NULL,
-  `firstName` varchar(25) DEFAULT NULL,
-  `lastName` varchar(25) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
+  `email` varchar(75) NOT NULL,
+  `firstName` varchar(30) DEFAULT NULL,
+  `lastName` varchar(30) DEFAULT NULL,
+  `password` varchar(70) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `make` varchar(50) DEFAULT NULL,
   `model` varchar(50) DEFAULT NULL,
