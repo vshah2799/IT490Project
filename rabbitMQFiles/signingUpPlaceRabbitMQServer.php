@@ -32,8 +32,7 @@ function requestProcessor($request)
   fwrite($fp, $request['message'] . " \r\n");
   fclose($fp);
 
-  ##return array("returnCode" => '0', 'message'=>"TESTTTTTTTTTTTServer received request and processed");
-  return ("Hello world");
+  return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
 $server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
