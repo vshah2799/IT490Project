@@ -14,14 +14,11 @@
 
 			</div>
 			
-		<form method =":post">
+		<form method ="post">
 			
-
-                        <div class="container">
-                                <form> User: <input type=text name="user"> </form>
-                                <form> Pass: <input type=text name="pass"> </form>
-				<button type="button" name="login">GO</button>
-			</d
+			User: <input type="text" name="User"><br>
+			Pass: <input type="text" name="Pass"><br>
+		<input type="submit" name="submit">
 			
 			
 		</form>
@@ -38,8 +35,9 @@ $pass = @$_POST["pass"];
 
 if(isset($_POST["submit"]))
 {
-	print $pass;
+	print "$pass";
 	print "Hello World";
+	echo "<br> your balls";
 }
 	
 
