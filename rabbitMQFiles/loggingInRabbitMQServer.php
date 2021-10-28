@@ -31,8 +31,8 @@ function requestProcessor($request)
   }
     $userID = $request['userID'];
     $password = $request['password'];
-    $sql = "SELECT FROM carRecalls (userID, password)
-            WHERE userID = $userID and password = $password";
+    $sql = "SELECT FROM users (userID, password)
+            WHERE (userID = $userID and password = $password)";
 
     try{
         (mysqli_query($conn, $sql));
