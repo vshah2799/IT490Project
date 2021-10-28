@@ -1,7 +1,6 @@
 #!/usr/bin/php
 <?php
 
-//chdir(getcwd());
-print(getcwd());
+chdir(getcwd());
 shell_exec("php testRabbitMQClient.php " . " \"Hello World\" ");
 
