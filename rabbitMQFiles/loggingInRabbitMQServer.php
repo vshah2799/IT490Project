@@ -20,33 +20,37 @@ function requestProcessor($request)
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    echo "Connected successfully";
+    echo "Connected successfully\n";
 //******************************************************************************************/
 
-  echo "received request".PHP_EOL;
-  var_dump($request);
+	
+    
+    
   if(!isset($request['type']))
   {
-    return "ERROR: unsupported message type";
+    return "ERROR: unsupported message type\n";
   }
     $userID = $request['userID'];
     $password = $request['password'];
-    $sql = "SELECT FROM users (userID, password)
-            WHERE (userID = $userID and password = $password)";
-
-    try{
-        (mysqli_query($conn, $sql));
-        echo "Data retrieved successfully";
-    }catch(Exception $e){
-        return $e;
+    $sql = "SELECT * FROM users WHERE (userID = '$userID' and password = '$password')";
+	
+    $results = mysqli_query($conn, $sql);
+    $numRows = mysqli_num_rows($results);
+    print($numRows);
+    if (mysqli_num_rows($results) == 1){
+	print("Got data success");
+    }else{
+	return false;
     }
-
+    
     mysqli_close($conn);
-
-    return array("$userID and $password are good" );
+	
+    return true;
 }
 
+
 $server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
+
 
 $server->process_requests('requestProcessor');
 exit();
