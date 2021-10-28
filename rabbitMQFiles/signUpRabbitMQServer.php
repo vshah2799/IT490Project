@@ -41,12 +41,14 @@ function requestProcessor($request)
     }
 
     $sqlInsert = "INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, 'year', recallFixed)
-                    ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', '$year')";
+                    VALUES ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', '$year')";
 
-
-    mysqli_close($conn);
-
-    return true;
+    if(mysqli_query($conn, $sqlInsert)){
+        mysqli_close($conn);
+        return true;
+    }else{
+        return false;
+    }
 }
 
 

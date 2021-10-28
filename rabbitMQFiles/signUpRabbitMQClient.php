@@ -1,8 +1,8 @@
 #!/usr/bin/php
 //This sends signup info the signUpRabbitMQServer.php. server returns true if userID is unique and
 //fields get added to the db
-//Leave empty strings for the empty fields
 //Data goes in this order: userID, email, firstname, lastname, password, address, make, model, year
+//Enter "NULL" for all empty data
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
@@ -29,7 +29,7 @@ $request['model'] = $argv[8];
 $request['year'] = $argv[9];
 
 
-//$response = $client->send_request($request);
+$response = $client->send_request($request);
 
-print $request[0];
+print $response;
 
