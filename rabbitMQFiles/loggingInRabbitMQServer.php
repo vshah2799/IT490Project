@@ -1,4 +1,6 @@
 #!/usr/bin/php
+//This returns true if the userID and Password are correct and false if not
+
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
@@ -26,7 +28,7 @@ function requestProcessor($request)
 	
     
     
-  if(!isset($request['type']))
+  if(!$request['type'] == 'Login')
   {
     return "ERROR: unsupported message type\n";
   }
@@ -35,16 +37,14 @@ function requestProcessor($request)
     $sql = "SELECT * FROM users WHERE (userID = '$userID' and password = '$password')";
 	
     $results = mysqli_query($conn, $sql);
-    $numRows = mysqli_num_rows($results);
-    print($numRows);
     if (mysqli_num_rows($results) == 1){
-	print("Got data success");
+	print("Got data, success");
     }else{
 	return false;
     }
     
     mysqli_close($conn);
-	
+
     return true;
 }
 

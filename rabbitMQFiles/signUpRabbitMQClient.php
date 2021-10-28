@@ -1,31 +1,35 @@
 #!/usr/bin/php
+//This sends signup info the signUpRabbitMQServer.php. server returns true if userID is unique and
+//fields get added to the db
+//Leave empty strings for the empty fields
+//Data goes in this order: userID, email, firstname, lastname, password, address, make, model, year
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
 require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 
-$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
 
-if (isset($argv[1]))
-{
-  $msg = $argv[1];
+$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
+if (!isset($argv[1])){
+    print("NOT ENOUGH INFO\n");
+    die();
 }
-else
-{
-  $msg = "test message";
-}
+
 
 $request = array();
-$request['type'] = "Login";
-$request['username'] = "steve";
-$request['password'] = "password";
-$request['message'] = $msg;
-$response = $client->send_request($request);
-//$response = $client->publish($request);
+$request['type'] = "Signup";
+$request['userID'] = $argv[1];
+$request['password'] = $argv[5] ;
+$request['email'] = $argv[2];
+$request['fn'] = $argv[3];
+$request['ln'] = $argv[4];
+$request['address'] = $argv[6];
+$request['make'] = $argv[7];
+$request['model'] = $argv[8];
+$request['year'] = $argv[9];
 
-echo "client received response: ".PHP_EOL;
-print_r($response);
-echo "\n\n";
 
-echo $argv[0]." END".PHP_EOL;
+//$response = $client->send_request($request);
+
+print $request[0];
 

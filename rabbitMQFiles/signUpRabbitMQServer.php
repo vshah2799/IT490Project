@@ -4,40 +4,57 @@ require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
 require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 
-function doLogin($username,$password)
-{
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
-}
 
 function requestProcessor($request)
 {
-  echo "received request".PHP_EOL;
-  var_dump($request);
-  if(!isset($request['type']))
-  {
-    return "ERROR: unsupported message type";
-  }
-  switch ($request['type'])
-  {
-    case "login":
-      return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
-  }
+    $servername = "localhost";
+    $username = "test";
+    $dbPassword = "";
+    $db = "projectDB";
+//DB Connection*****************************************************************************/
+    $conn = mysqli_connect($servername, $username, $dbPassword, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully\n";
+//******************************************************************************************/
 
-  $fp = fopen('logFileUserCreated', 'a');
-  fwrite($fp, $request['message'] . " \r\n");
-  fclose($fp);
+    if(!$request['type'] == 'Signup')
+    {
+        return "ERROR: unsupported message type\n";
+    }
+    $userID = $request['userID'];
+    $email = $request['email'];
+    $fn = $request['fn'];
+    $ln = $request['ln'];
+    $password = $request['password'];
+    $address = $request['address'];
+    $make = $request['make'];
+    $model = $request['model'];
+    $year = $request['year'];
+    $sql = "SELECT * FROM users WHERE (userID = '$userID' and password = '$password')";
 
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+    $results = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($results) >= 1){
+        return false;
+    }
+
+    $sqlInsert = "INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, 'year', recallFixed)
+                    ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', '$year')";
+
+
+    mysqli_close($conn);
+
+    return true;
 }
+
 
 $server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
 
+
 $server->process_requests('requestProcessor');
 exit();
+
 ?>
 

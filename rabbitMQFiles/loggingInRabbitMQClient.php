@@ -1,4 +1,6 @@
 #!/usr/bin/php
+//This sends the userID and password to loggingInRabbitMQServer.php. userID goes first then password
+//Example on command line: php loggingInRabbitMQClient.php test 123456789
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
@@ -22,6 +24,5 @@ $request['password'] = $password;
 
 
 $response = $client->send_request($request);
-//$response = $client->publish($request);
 
 print $response;
