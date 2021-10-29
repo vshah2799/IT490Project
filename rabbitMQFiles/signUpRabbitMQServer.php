@@ -33,22 +33,23 @@ function requestProcessor($request)
     $make = $request['make'];
     $model = $request['model'];
     $year = $request['year'];
+    $recallFixed = $request['recallFixed'];
     $sql = "SELECT * FROM users WHERE (userID = '$userID' and password = '$password')";
-
+	print("Got to checking if user already there");
     $results = mysqli_query($conn, $sql);
     if (mysqli_num_rows($results) >= 1){
         return false;
     }
-
-    $sqlInsert = "INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, 'year', recallFixed)
-                    VALUES ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', '$year')";
-
+print("Got to insterting data");
+    $sqlInsert = "INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, year, recallFixed) VALUES ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', $year, $recallFixed)";
+  
     if(mysqli_query($conn, $sqlInsert)){
-        mysqli_close($conn);
-        return true;
+	    return true;
     }else{
-        return false;
+	    return false;
     }
+  
+    
 }
 
 
