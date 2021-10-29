@@ -1,30 +1,28 @@
 #!/usr/bin/php
+//This sends recall information for a car. Need make, model, and yer
+//Data goes in this order: make model year
+//Example call from command line: php recallPageRabbitMQClient.php make model year
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('/home/vshah/Desktop/IT490Project/path.inc');
+require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
+require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
+
 
 $client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
-if (isset($argv[1]))
-{
-  $msg = $argv[1];
+if (!isset($argv[3])){
+    print("NOT ENOUGH INFO\n");
+    die();
 }
-else
-{
-  $msg = "test message";
-}
+
 
 $request = array();
-$request['type'] = "Login";
-$request['username'] = "steve";
-$request['password'] = "password";
-$request['message'] = $msg;
+$request['type'] = "Recall";
+$request['make'] = $argv[1];
+$request['model'] = $argv[2];
+$request['year'] = $argv[3];
+
+
 $response = $client->send_request($request);
-//$response = $client->publish($request);
 
-echo "client received response: ".PHP_EOL;
-print_r($response);
-echo "\n\n";
-
-echo $argv[0]." END".PHP_EOL;
+print $response;
 
