@@ -34,7 +34,9 @@ function requestProcessor($request)
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
-      return mysqli_fetch_assoc($result);
+	  $row = mysqli_fetch_assoc($result);
+	  return $row['recallText'];
+
   } else {
       return "No recalls found";
   }
