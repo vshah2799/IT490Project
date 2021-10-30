@@ -23,6 +23,6 @@ $request['userID'] = $userID;
 $request['password'] = $password;
 
 
-$response = $client->send_request($request);
+print ($client->send_request($request));
 
-print $response;
+
