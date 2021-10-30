@@ -1,4 +1,5 @@
 #!/usr/bin/php
+//Returns true if account gets added and false if it cannot be added
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
@@ -28,7 +29,7 @@ function requestProcessor($request)
     $email = $request['email'];
     $fn = $request['fn'];
     $ln = $request['ln'];
-    $password = $request['password'];
+    $password = password_hash($request['password'], PASSWORD_DEFAULT); 
     $address = $request['address'];
     $make = $request['make'];
     $model = $request['model'];
