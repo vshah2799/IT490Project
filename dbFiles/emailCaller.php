@@ -24,8 +24,9 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
 
         chdir(getcwd());
-        $temp = $row["recallFixed"];
-        shell_exec("php email.php $temp" );
+	$temp = $row["email"];
+	print($temp);
+        echo shell_exec("php email.php $temp" );
     }
 } else {
     echo "0 results";
