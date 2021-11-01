@@ -17,8 +17,8 @@ except Error as e:
 cursor = conn.cursor()
 
 for years in range(1):
-    print(years+2000)
-    yearString = str(years + 2000)
+    print(years+2001)
+    yearString = str(years + 2001)
     try:
         makesUrl = 'https://api.nhtsa.gov/products/vehicle/makes?modelYear=' + yearString + '&issueType=r'
         makesRequest = requests.get(makesUrl)

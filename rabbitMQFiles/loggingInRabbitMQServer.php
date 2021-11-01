@@ -1,5 +1,6 @@
 #!/usr/bin/php
 //This returns true if the userID and Password are correct and false if not
+//Password hash gets checked as well
 
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
