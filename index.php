@@ -19,7 +19,7 @@
 			User: <input type="text" name="user"><br>
 			Pass: <input type="text" name="pass"><br>
 		<input type="submit" name="submit">
-			
+		<p><a href="webpages/userAccountPage.php"> Account Page</a></p>
 			
 		</form>
 

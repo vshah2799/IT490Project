@@ -33,4 +33,5 @@ $request['recallFixed'] = $argv[10];
 $response = $client->send_request($request);
 
 print $response;
+return $response;
 
