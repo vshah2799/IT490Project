@@ -1,3 +1,4 @@
+//Returns recall info as a string
 #!/usr/bin/php
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
