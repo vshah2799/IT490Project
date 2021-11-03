@@ -11,9 +11,9 @@ require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 $client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
 if (!isset($argv[3])){
 
-    $errorString = "RECALL_PAGE_CLIENT: Not enough info \n";
+    $errorString = "RECALL_PAGE_CLIENT: Not enough info";
     chdir("..");
-    shell_exec("php loggingRabbitMQClient.php $errorString");
+    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
     die();
 }
