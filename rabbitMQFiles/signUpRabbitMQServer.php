@@ -16,14 +16,25 @@ function requestProcessor($request)
     $conn = mysqli_connect($servername, $username, $dbPassword, $db);
 // Check connection
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+
+    $errorString = "SIGNUP_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
+    print($errorString);
+    die();
+
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
 
     if(!$request['type'] == 'Signup')
     {
-        return "ERROR: unsupported message type\n";
+
+    $errorString = "SIGNUP_PAGE_SERVER: Unsupported reuest type ";
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
+    print($errorString);
+    die();
     }
     $userID = $request['userID'];
     $email = $request['email'];

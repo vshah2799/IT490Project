@@ -16,14 +16,23 @@ function requestProcessor($request)
     $conn = mysqli_connect($servername, $username, $dbPassword, $db);
 // Check connection
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+	   
+    $errorString = "RECALL_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
+    print($errorString);
+    die();
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
 
   if(!($request['type'] == 'Recall'))
   {
-    return "ERROR: unsupported message type";
+    $errorString = "RECALL_PAGE_SERVER: Unsupported reuest type ";
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
+    print($errorString);
+    die();
   }
 
   $make = $request['make'];

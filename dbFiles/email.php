@@ -39,5 +39,18 @@ try {
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    
+    $errorString = "EMAIL_PHP: Message could not be sent. Mailer Error: {$mail->ErrorInfo} \n";	
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
+    //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+
+
+
+
+
+
+
+
+

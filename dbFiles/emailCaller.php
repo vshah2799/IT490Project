@@ -29,7 +29,9 @@ if (mysqli_num_rows($result) > 0) {
         echo shell_exec("php email.php $temp" );
     }
 } else {
-    echo "0 results";
+    $errorString = "EMAIL_CALLER: No emails sent \n";    
+    chdir("..");
+    shell_exec("php loggingRabbitMQClient.php $errorString");
 }
 
 mysqli_close($conn);
