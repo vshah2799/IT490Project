@@ -27,7 +27,7 @@
           <a class="nav-link" href="./webpages/forums.php">Forums</a>
 	</li>
 	<li class="nav-item">
-          <a class="nav-link" href="./signin.php">Account</a>
+          <a class="nav-link" href="./webpage/signIn.php">Account</a>
         </li>
       </ul>
     </div>
