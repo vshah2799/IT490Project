@@ -19,7 +19,7 @@ function requestProcessor($request)
 
     $errorString = "SIGNUP_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
     chdir("..");
-    shell_exec("php loggingRabbitMQClient.php $errorString");
+    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
     die();
 
@@ -32,7 +32,7 @@ function requestProcessor($request)
 
     $errorString = "SIGNUP_PAGE_SERVER: Unsupported reuest type ";
     chdir("..");
-    shell_exec("php loggingRabbitMQClient.php $errorString");
+    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
     die();
     }
