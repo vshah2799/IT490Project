@@ -4,16 +4,19 @@
 <title>Title of the document</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" href="marketStyle.css">
 </head>
 
 <body>
-<div class="card mb-3" style="max-width: 90%;">
+<div class="card mb-3">
   <div class="row g-5">
     <div class="col-md-5">
-      <img src="/webpages/images/car.jpeg" class="img-fluid rounded-start" alt="Responsive image">
+
     </div>
     <div class="col-md-8">
       <div class="card-body">
+	
+      <img src="/webpages/images/car.jpeg" class="img-fluid-rounded-start" alt="Responsive image">
         <h5 class="card-title">Car 1</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>

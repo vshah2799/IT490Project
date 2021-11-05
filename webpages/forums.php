@@ -60,6 +60,13 @@ $check = mysqli_query($mydb."SELECT * FROM topics");
 
 if(mysqli_num_rows($check != 1)){
 	while($row = mysqli_fetch_assoc($check)){
+		echo "<tr class="/tablerow/">";
+                echo " <td class=/"name/"><a href=/"/forums/threads/1/Dick/">Dick</a></td>"
+                echo  "<td class="replies">1</td>"
+                echo "<td class="author"><a href="/profile/131/hotboy">hotboy</a></td>"
+                echo "<td class="activity"><span class="smartphone-only">8h</span><span class="gtSmartphone-only">8 hours ago</span></td>"
+                echo "</tr>"
+		
 		echo($row['subject']);
 		echo("<br>");
 	}
