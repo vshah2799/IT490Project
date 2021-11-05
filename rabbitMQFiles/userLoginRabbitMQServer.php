@@ -30,37 +30,9 @@ function requestProcessor($request)
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
-   /*
-  if(!$request['type'] == 'Login')
-  {
-    $errorString = "USER_LOGIN_PAGE_SERVER: Unsupported reuest type ";
-    chdir("..");
-    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
-    print($errorString);
-    die();
-  }
-  */
 
     $userID = $request['userID'];
     $password = $request['password'];
-
-
-    /*
-    $sql = "SELECT password FROM users WHERE (userID = '$userID')";
-    $results = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($results) == 1){
-	print("Got data, success");
-    }else{
-	return false;
-    }
-    mysqli_close($conn);
-    $hashedPassword = mysqli_fetch_assoc($results);
-
-    if(password_verify($password, $hashedPassword['password'])){
-	    return true;
-    }
-    return false;
-    */
 
     $selectStmt = $conn->prepare("SELECT password FROM users WHERE (userID = ?)");
     $selectStmt->bind_param("s", $userID);

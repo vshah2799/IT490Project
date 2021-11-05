@@ -14,13 +14,11 @@ if (!isset($argv[3])){
     $errorString = "RECALL_PAGE_CLIENT: Not enough info";
     chdir("..");
     shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
-    print($errorString);
-    die();
+    return $errorString;
 }
 
 
 $request = array();
-$request['type'] = "Recall";
 $request['make'] = $argv[1];
 $request['model'] = $argv[2];
 $request['year'] = $argv[3];

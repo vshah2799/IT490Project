@@ -17,12 +17,10 @@ else{
   $errorString = "USER_LOGIN_PAGE_CLIENT: Not enough info";
   chdir("..");
   shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
-  print($errorString);
-  return;
+  return $errorString;
 }
 
 $request = array();
-$request['type'] = "Login";
 $request['userID'] = $userID;
 $request['password'] = $password;
 
