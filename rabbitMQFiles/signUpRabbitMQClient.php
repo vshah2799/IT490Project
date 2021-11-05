@@ -1,8 +1,7 @@
 #!/usr/bin/php
 //This sends signup info the signUpRabbitMQServer.php. server returns true if userID is unique and
 //fields get added to the db
-//Data goes in this order: userID, email, firstname, lastname, password, address, make, model, year, recallFixed, type
-//TYPE IS EITHER "Signup" or "Update" -- case sensistive for type
+//Data goes in this order: userID, email, firstname, lastname, password, address, make, model, year, recallFixed
 //Enter "NULL" for all empty data
 //recallFixed is either 0 or 1. 0 is False and 1 is True
 <?php
@@ -22,7 +21,6 @@ if (!isset($argv[1])){
 
 
 $request = array();
-$request['type'] = $argv[11];
 $request['userID'] = $argv[1];;
 $request['email'] = $argv[2];
 $request['fn'] = $argv[3];
