@@ -29,7 +29,7 @@ function requestProcessor($request)
     $userID = $request['userID'];
 
     $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ?)");
-    $selectStmt->bind_param("ss", $userID);
+    $selectStmt->bind_param("s", $userID);
     $selectStmt->execute();
     print("Got user data\n");
     $result = $selectStmt->get_result();
@@ -43,7 +43,7 @@ function requestProcessor($request)
         "make"       => $showUserText['make'],
         "model"      => $showUserText['model'],
         "year"       => $showUserText['year'],
-        "recallText" => $showUserText['recallText']
+        "recallFixed" => $showUserText['recallFixed']
     );
 
     $selectStmt->close();
