@@ -16,7 +16,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `recalls`
 --
 
 DROP TABLE IF EXISTS `recalls`;
@@ -33,7 +33,7 @@ CREATE TABLE `recalls` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `recalls`
 --
 
 LOCK TABLES `recalls` WRITE;
