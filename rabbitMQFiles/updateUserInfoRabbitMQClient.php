@@ -4,7 +4,7 @@ require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
 require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 
 
-$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("updateUserInfoRabbitMQ.ini","testServer");
 if (!isset($argv[1])){
     $errorString = "SIGNUP_PAGE_CLIENT: Not enough info";
     chdir("..");

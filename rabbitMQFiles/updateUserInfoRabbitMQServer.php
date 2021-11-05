@@ -59,18 +59,27 @@ function requestProcessor($request)
     }if(empty($year)){
         $year = $selectArray['year'];
     }if(empty($recallFixed)){
-        $recallFixed = $selectArray['recallFixed'];
+        $recallFixed = (int)($selectArray['recallFixed']);
     }else{
         $recallFixed = 1;
     }
+    $selectStmt->close();
+    print("$email \n");
+    print("$fn \n");
+    print("$ln \n");
+    print("$address \n");
+    print("$make \n");
+    print("$model \n");
+    print("$year \n");
+    print("$recallFixed \n");
+    print("$userID \n");
+    
 
-
-    $insertStmt = $conn->prepare("INSERT INTO users (email, firstname, lastname, address, make, model, year, recallFixed) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE (userID = ?)");
+    $insertStmt = $conn->prepare("UPDATE users SET email = ?, firstName = ?, lastName = ?, address = ?, make = ?, model = ?, year = ?, recallFixed = ? WHERE userID = ?");
     $insertStmt->bind_param("ssssssiis",  $email, $fn, $ln, $address, $make, $model, $year, $recallFixed, $userID );
 
     if($insertStmt->execute()){
         print("Statement executed");
-        $selectStmt->close();
         $insertStmt->close();
         $conn->close();
         return true;
@@ -88,4 +97,3 @@ $server->process_requests('requestProcessor');
 exit();
 
 ?>
-
