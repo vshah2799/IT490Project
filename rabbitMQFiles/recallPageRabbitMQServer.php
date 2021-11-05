@@ -25,7 +25,7 @@ function requestProcessor($request)
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
-
+  /*
   if(!($request['type'] == 'Recall'))
   {
     $errorString = "RECALL_PAGE_SERVER: Unsupported reuest type ";
@@ -34,22 +34,36 @@ function requestProcessor($request)
     print($errorString);
     die();
   }
+  */
 
   $make = $request['make'];
   $model = $request['model'];
   $year = $request['year'];
 
-  $sql = "SELECT recallText FROM carRecalls WHERE (make = '$make' and model = '$model' and year = '$year')";
+    /*
+    $sql = "SELECT recallText FROM carRecalls WHERE (make = '$make' and model = '$model' and year = '$year')";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['recallText'];
 
-  $result = mysqli_query($conn, $sql);
+    } else {
+        return "No recalls found";
+    }
+    */
 
-  if (mysqli_num_rows($result) > 0) {
-	  $row = mysqli_fetch_assoc($result);
-	  return $row['recallText'];
+  $selectStmt = $conn->prepare("SELECT recallText FROM carRecalls WHERE (make = ? and model = ? and year = ?)");
+  $selectStmt->bind_param("ssi", $make, $model, $year);
+  $selectStmt->execute();
+  mysqli_stmt_store_result($selectStmt);
+  mysqli_stmt_bind_result($selectStmt, $recallTextVar);
 
-  } else {
-      return "No recalls found";
+  if(mysqli_stmt_num_rows($selectStmt) >= 1){
+      mysqli_stmt_fetch($selectStmt);
+      return $recallTextVarl;
   }
+  return "No recall found";
+
 
 }
 

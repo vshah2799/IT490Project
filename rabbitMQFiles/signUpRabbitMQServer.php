@@ -63,6 +63,7 @@ function requestProcessor($request)
 
 
 
+
     $insertStmt = $conn->prepare("INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, year, recallFixed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertStmt->bind_param("ssssssssii", $userID, $email, $fn, $ln, $password, $address, $make, $model, $year, $recallFixed );
 
