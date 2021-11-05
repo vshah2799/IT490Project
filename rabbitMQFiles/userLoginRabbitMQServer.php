@@ -1,5 +1,7 @@
-//Returns recall info as a string
 #!/usr/bin/php
+//This returns true if the userID and Password are correct and false if not
+//Password hash gets checked as well
+
 <?php
 require_once('/home/vshah/Desktop/IT490Project/path.inc');
 require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
@@ -8,16 +10,19 @@ require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 
 function requestProcessor($request)
 {
+
     $servername = "localhost";
     $username = "test";
     $dbPassword = "";
     $db = "projectDB";
+
 //DB Connection*****************************************************************************/
     $conn = mysqli_connect($servername, $username, $dbPassword, $db);
+
 // Check connection
     if (!$conn) {
-	   
-    $errorString = "RECALL_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
+
+    $errorString = "USER_LOGIN_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
     chdir("..");
     shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
@@ -25,10 +30,10 @@ function requestProcessor($request)
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
-  /*
-  if(!($request['type'] == 'Recall'))
+   /*
+  if(!$request['type'] == 'Login')
   {
-    $errorString = "RECALL_PAGE_SERVER: Unsupported reuest type ";
+    $errorString = "USER_LOGIN_PAGE_SERVER: Unsupported reuest type ";
     chdir("..");
     shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
@@ -36,37 +41,25 @@ function requestProcessor($request)
   }
   */
 
-  $make = $request['make'];
-  $model = $request['model'];
-  $year = $request['year'];
-
-    /*
-    $sql = "SELECT recallText FROM carRecalls WHERE (make = '$make' and model = '$model' and year = '$year')";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        return $row['recallText'];
-
-    } else {
-        return "No recalls found";
+    $userID = $request['userID'];
+    $password = $request['password'];
+    $sql = "SELECT password FROM users WHERE (userID = '$userID')";
+    $results = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($results) == 1){
+	print("Got data, success");
+    }else{
+	return false;
     }
-    */
+    mysqli_close($conn);
+    $hashedPassword = mysqli_fetch_assoc($results);
 
-  $selectStmt = $conn->prepare("SELECT recallText FROM carRecalls WHERE (make = ? and model = ? and year = ?)");
-  $selectStmt->bind_param("ssi", $make, $model, $year);
-  $selectStmt->execute();
-  $result = $selectStmt->get_result();
-  $recallText = $result->fetch_assoc();
-
-  if(!empty($recallText)){
-      return $recallText['recallText'];
-  }
-  return "No recall found";
-
+    if(password_verify($password, $hashedPassword['password'])){
+	    return true;
+    }
+    return false;
 }
 
 $server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
-
 $server->process_requests('requestProcessor');
 exit();
 ?>
