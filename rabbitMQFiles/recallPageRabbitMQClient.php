@@ -29,5 +29,5 @@ $request['year'] = $argv[3];
 $response = $client->send_request($request);
 
 print $response;
-return $repsonse;
+return $response;
 

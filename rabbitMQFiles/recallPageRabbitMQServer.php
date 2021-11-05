@@ -55,15 +55,13 @@ function requestProcessor($request)
   $selectStmt = $conn->prepare("SELECT recallText FROM carRecalls WHERE (make = ? and model = ? and year = ?)");
   $selectStmt->bind_param("ssi", $make, $model, $year);
   $selectStmt->execute();
-  mysqli_stmt_store_result($selectStmt);
-  mysqli_stmt_bind_result($selectStmt, $recallTextVar);
+  $result = $selectStmt->get_result();
+  $recallText = $result->fetch_assoc();
 
-  if(mysqli_stmt_num_rows($selectStmt) >= 1){
-      mysqli_stmt_fetch($selectStmt);
-      return $recallTextVarl;
+  if(!empty($recallText)){
+      return $recallText['recallText'];
   }
   return "No recall found";
-
 
 }
 
