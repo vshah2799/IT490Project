@@ -46,13 +46,43 @@ function requestProcessor($request)
     $model = $request['model'];
     $year = $request['year'];
     $recallFixed = $request['recallFixed'];
+
+    // prepare and bind
+
+    $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ? and password = ?)");
+    $selectStmt->bind_param("ss", $userID, $password);
+    $selectStmt->execute();
+    print("Got to checking if user already there");
+    mysqli_stmt_store_result($selectStmt);
+    if(mysqli_stmt_num_rows($selectStmt) >= 1){
+        return false;
+    }
+
+
+
+    $insertStmt = $conn->prepare("INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, year, recallFixed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertStmt->bind_param("ssssssssii", $userID, $email, $fn, $ln, $password, $address, $make, $model, $year, $recallFixed );
+
+    if($insertStmt->execute()){
+        return true;
+    }
+    $selectStmt->close();
+    $insertStmt->close();
+    $conn->close();
+
+    return false;
+
+
+
+    /* Working MYSQL Code
     $sql = "SELECT * FROM users WHERE (userID = '$userID' and password = '$password')";
 	print("Got to checking if user already there");
     $results = mysqli_query($conn, $sql);
     if (mysqli_num_rows($results) >= 1){
         return false;
     }
-print("Got to insterting data");
+
+    print("Got to insterting data");
     $sqlInsert = "INSERT INTO users (userID, email, firstname, lastname, password, address, make, model, year, recallFixed) VALUES ('$userID', '$email', '$fn', '$ln', '$password', '$address', '$make', '$model', $year, $recallFixed)";
   
     if(mysqli_query($conn, $sqlInsert)){
@@ -60,13 +90,12 @@ print("Got to insterting data");
     }else{
 	    return false;
     }
-  
-    
+    */
+
 }
 
 
 $server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
-
 
 $server->process_requests('requestProcessor');
 exit();

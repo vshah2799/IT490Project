@@ -15,6 +15,7 @@
 			<button type="search" class=btn btn-dark>Search</button>
 		      </form>
 		</div>
+
 	</nav>
 	
             <div class="vm-placement hidden" data-id="5e79f54d963d0e25e62b5f51"></div>
@@ -57,7 +58,7 @@
 <?php
 $check = mysqli_query($mydb."SELECT * FROM topics");
 
-if(mysqli_num_rows($check != 1){
+if(mysqli_num_rows($check != 1)){
 	while($row = mysqli_fetch_assoc($check)){
 		echo($row['subject']);
 		echo("<br>");
