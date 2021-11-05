@@ -26,16 +26,19 @@ function requestProcessor($request)
     }
     echo "Connected successfully\n";
 //******************************************************************************************/
-
-    if(!$request['type'] == 'Signup')
+    
+    /*
+    if($request['type'] != 'Signup')
     {
 
-    $errorString = "SIGNUP_PAGE_SERVER: Unsupported reuest type ";
-    chdir("..");
-    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
-    print($errorString);
-    die();
+    	$errorString = "SIGNUP_PAGE_SERVER: Unsupported reuest type ";
+    	chdir("..");
+    	shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
+    	print($errorString);
+    	return false;
     }
+    */
+
     $userID = $request['userID'];
     $email = $request['email'];
     $fn = $request['fn'];
@@ -52,7 +55,7 @@ function requestProcessor($request)
     $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ? and password = ?)");
     $selectStmt->bind_param("ss", $userID, $password);
     $selectStmt->execute();
-    print("Got to checking if user already there");
+    print("Got to checking if user already there\n");
     mysqli_stmt_store_result($selectStmt);
     if(mysqli_stmt_num_rows($selectStmt) >= 1){
         return false;
@@ -64,6 +67,10 @@ function requestProcessor($request)
     $insertStmt->bind_param("ssssssssii", $userID, $email, $fn, $ln, $password, $address, $make, $model, $year, $recallFixed );
 
     if($insertStmt->execute()){
+	print("Statement executed");
+	$selectStmt->close();
+    	$insertStmt->close();
+    	$conn->close();
         return true;
     }
     $selectStmt->close();
