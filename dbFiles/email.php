@@ -1,9 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/Exception.php';
-require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/SMTP.php';
+require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/Exception.php';
+require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
 $emailToMail = $argv[1];
@@ -33,16 +33,15 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Your car has recall(s) that have not been fixed';
-    $mail->Body    = 'Visit ---link to webpage--- to check the recalls on your car';
+    $mail->Body    = 'Visit <a href="~/Desktop/IT490Project/index.php">it.project.com</a> to check the recalls on your car';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
     
-    $errorString = "EMAIL_PHP: Message could not be sent. Mailer Error: {$mail->ErrorInfo} \n";	
-    chdir("..");
-    shell_exec("php loggingRabbitMQClient.php $errorString");
+    $errorString = "EMAIL_PHP: Message could not be sent. Mailer Error: {$mail->ErrorInfo} \n";
+    shell_exec("php ~/Desktop/IT490Project/loggingRabbitMQClient.php $errorString");
     //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
