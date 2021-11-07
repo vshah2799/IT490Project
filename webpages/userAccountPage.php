@@ -17,28 +17,12 @@
 			</div>
 		</div>
 
-	<?php
-	if (isset($_POST['user']) and isset($_POST['pass']))
-	{
-		$user = $_POST['user'];
-		echo "User: $user" . "<br>";
-		$pass = $_POST['pass'];
-		echo "Pass: $pass" . "<br>";
-	}
-
-	?>
-
 		<h2>Update Information</h2>
 
 		<form action="./testUserUpdate.php" method="post">
 			<div class="form-group">
 				<label for="user">Username</label>
 				<input type="text" class="form-control" name="user" id="user" placeholder="Enter username">
-			</div>
-
-			<div class="form-group">
-				<label for="pass">Password</label>
-				<input type="text" class="form-control" name="pass" id="pass" placeholder="Enter password">
 			</div>
 
 			<div class="form-group">
