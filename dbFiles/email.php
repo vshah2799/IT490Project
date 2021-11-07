@@ -1,9 +1,10 @@
 <?php
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/Exception.php';
-require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '~/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 $mail = new PHPMailer(true);
 $emailToMail = $argv[1];

@@ -24,7 +24,7 @@
           <a class="nav-link" href="#">Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./webpages/forums.php">Forums</a>
+          <a class="nav-link" href="~/Desktop/IT490Project/webpages/forums.php">Forums</a>
 	</li>
 	<li class="nav-item">
           <a class="nav-link" href="./webpage/signIn.php">Account</a>
@@ -33,6 +33,8 @@
     </div>
   </div>
 </nav>
+
+ <a href="/webpages/forums.php">Forums2</a>  
 
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
