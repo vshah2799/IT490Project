@@ -28,7 +28,7 @@
 
 <body>
     <?php include 'header.php';
-          include 'connect.php';
+
 
         //   Opening threads in category 
         //   $id = $_GET['catid'];
@@ -40,6 +40,7 @@
         //     $desc = $row['catDesc'];
 
         //   }
+
         $showAlert = false;
         $method =$_SERVER['REQUEST_METHOD'];
         if($method == 'POST'){
