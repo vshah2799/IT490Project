@@ -23,15 +23,14 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
 
-        chdir(getcwd());
+
 	$temp = $row["email"];
 	print($temp);
-        echo shell_exec("php email.php $temp" );
+        echo shell_exec("php ~/Desktop/IT490Project/dbFiles/email.php $temp" );
     }
 } else {
-    $errorString = "EMAIL_CALLER: No emails sent \n";    
-    chdir("..");
-    shell_exec("php loggingRabbitMQClient.php $errorString");
+    $errorString = "EMAIL_CALLER: No emails sent \n";
+    shell_exec("php ~/Desktop/IT490Project/loggingRabbitMQClient.php $errorString");
 }
 
 mysqli_close($conn);

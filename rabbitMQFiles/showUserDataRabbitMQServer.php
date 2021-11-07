@@ -1,8 +1,8 @@
 #!/usr/bin/php
 <?php
-require_once('/home/vshah/Desktop/IT490Project/path.inc');
-require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
-require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
+require_once('../path.inc');
+require_once('../get_host_info.inc');
+require_once('../rabbitMQLib.inc');
 
 
 function requestProcessor($request)
@@ -17,8 +17,7 @@ function requestProcessor($request)
     if (!$conn) {
 
         $errorString = "SIGNUP_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
-        chdir("..");
-        shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
+        shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
         print($errorString);
         die();
 

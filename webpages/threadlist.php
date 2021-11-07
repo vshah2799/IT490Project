@@ -28,7 +28,7 @@
 
 <body>
     <?php include 'header.php';
-          include 'connect.php';
+
 
         //   Opening threads in category 
         //   $id = $_GET['catid'];
@@ -40,15 +40,20 @@
         //     $desc = $row['catDesc'];
 
         //   }
+
         $showAlert = false;
         $method =$_SERVER['REQUEST_METHOD'];
+
         if($method == 'POST'){
             //inserting info abt thread
             $titleTopic = $_POST['title'];
             $tDesc = $_POST['desc'];
-            $sql ="INSERT INTO `threads` (`topic`, `threadDesc`, `threadUserID`, `timeStamp`) VALUES ('$titleTopic', '$tDesc', '0', 'current_timestamp()');";
-            $result = mysqli_query($conn, $sql);
-            $showAlert = true;
+
+            $sql = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread4\" $titleTopic $tDesc" );
+            if($sql == true){
+                $showAlert = true;
+            }
+
             if($showAlert){
                 echo '<div class="alert alert-success alert-dismissible fade show" role="success">
                     <strong>Success! </strong> Thread succesfully posted!
@@ -91,8 +96,8 @@
             $count = 0;
             $noResult = true;
             // $id = $_GET['catid'];
-            $sql = "SELECT * FROM `threads`";
-            $result = mysqli_query($conn, $sql);
+            $result = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread5\"");
+
             while($row = mysqli_fetch_assoc($result)){
                 $noResult = false;
                 $count++;
