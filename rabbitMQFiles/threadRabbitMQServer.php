@@ -53,7 +53,19 @@ function requestProcessor($request)
         $id = $request['ID'];
         $sql = "SELECT * FROM replies WHERE threadID = '$id'";
         return mysqli_query($conn, $sql);
+    }elseif ($request['type'] = "Thread4"){
+        $titleTopic = $request['titleTopic'];
+        $tDesc = $request['tDesc'];
+
+        $insertStmt = $conn->prepare("INSERT INTO threads (topic, threadDesc, threadUserID, timeStamp) VALUES (?, ?, 0, current_timestamp())");
+        $insertStmt->bind_param("ss", $titleTopic, $tDesc);
+        $insertStmt->execute();
+        return true;
+    }elseif($request['type'] == "Thread5"){
+        $sql = "SELECT * FROM threads";
+        return mysqli_query($conn, $sql);
     }
+
     return false;
 }
 

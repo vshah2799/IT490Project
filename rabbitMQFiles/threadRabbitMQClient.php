@@ -17,6 +17,12 @@ if($argv[1] == "Thread1"){
 }elseif($argv[1] == "Thread3"){
     $request['type'] = "Thread3";
     $request['ID'] = $argv[2];
+}elseif ($argv[1] == "Thread4"){
+    $request['type'] = "Thread4";
+    $request['titleTopic'] = $argv[2];
+    $request['tDesc'] = $argc[3];
+}elseif ($argc[1] == 'Thread5'){
+    $request['type'] = "Thread5";
 }
 
 
