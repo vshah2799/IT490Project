@@ -26,22 +26,37 @@
 			</div>
 
 			<div class="form-group">
-				<label for="makeOfCar">Make</label>
-				<input type="text" class="form-control" name="make" id="makeOfCar" placeholder="Enter make">
+				<label for="make">Make</label>
+				<input type="text" class="form-control" name="make" id="make" placeholder="Enter make">
 			</div>
 
 			<div class="form-group">
-				<label for="modelOfCar">Model</label>
-				<input type="text" class="form-control" name="model" id="modelOfCar" placeholder="Enter model">
+				<label for="model">Model</label>
+				<input type="text" class="form-control" name="model" id="model" placeholder="Enter model">
 			</div>
 
 			<div class="form-group">
-				<label for="yearOfCar">Year</label>
-				<input type="text" class="form-control" name="year" id="yearOfCar" placeholder="Enter year">
+				<label for="year">Year</label>
+				<input type="text" class="form-control" name="year" id="year" placeholder="Enter year">
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
+		<button type="submit" onclick="displayCookie()">Test Cookie</button>
 
+		<script>
+			function displayCookie()
+			{
+				// getCookie();
+				if (document.cookie.length == 0)
+				{
+					alert("Cookie was not written to");
+				}
+				else
+				{
+					alert("Cookie was indeed written to\n");
+				}
+			}
+		</script>
 	</body>
 </html>
