@@ -17,15 +17,15 @@
 			</div>
 		</div>
 		
-		User <?php //echo $_POST["user"]; ?><br>
-		Pass <?php //echo $_POST["pass"]; ?><br>
+		User <?php //$userTemp = $_POST["user"]; ?><br>
+		Pass <?php //$passTemp = $_POST["pass"]; ?><br>
 
 		<h2>Update Information</h2>
 
 		<form action="./testUserUpdate.php" method="post">
 			<div class="form-group">
 				<label for="user">Username</label>
-				<input type="text" class="form-control" name="user" id="user" placeholder="Enter username">
+				<input type="text" name="user" id="user" placeholder="Enter username">
 			</div>
 
 			<div class="form-group">
