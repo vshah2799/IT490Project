@@ -1,42 +1,49 @@
 #!/usr/bin/php
+//Returns true if account gets added and false if it cannot be added
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('../path.inc');
+require_once('../get_host_info.inc');
+require_once('../rabbitMQLib.inc');
 
-function doLogin($username,$password)
-{
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
-}
 
 function requestProcessor($request)
 {
-  echo "received request".PHP_EOL;
-  var_dump($request);
-  if(!isset($request['type']))
-  {
-    return "ERROR: unsupported message type";
-  }
-  switch ($request['type'])
-  {
-    case "login":
-      return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
-  }
+    $servername = "localhost";
+    $username = "test";
+    $dbPassword = "";
+    $db = "projectDB";
+//DB Connection*****************************************************************************/
+    $conn = mysqli_connect($servername, $username, $dbPassword, $db);
+// Check connection
+    if (!$conn) {
 
-  $fp = fopen('logFileUserCreated', 'a');
-  fwrite($fp, $request['message'] . " \r\n");
-  fclose($fp);
+        $errorString = "SIGNUP_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
+        shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+        print($errorString);
+        die();
 
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+    }
+    echo "Connected successfully\n";
+//******************************************************************************************/
+
+    if($request['type'] == "Market1"){
+        $carName = $request['carName'];
+        $carDesc = $request['carDesc'];
+        $dealer  = $request['dealer'];
+        $contact = $request['contact'];
+        $insertStmt = $conn->prepare("INSERT INTO carsells (carName, carDesc, ownerName, contactInfo) VALUES (?, ?, ?, ?)");
+        $insertStmt->bind_param("ssss", $carName,$carDesc,$dealer,$contact );
+        return $insertStmt->execute();
+
+    }elseif ($request['type'] == "Market2"){
+        $sql = "SELECT * FROM carsells";
+        return mysqli_query($conn, $sql);
+    }
+
+    return false;
 }
 
-$server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
-
+$server = new rabbitMQServer("marketRabbitMQ.ini","testServer");
 $server->process_requests('requestProcessor');
 exit();
 ?>

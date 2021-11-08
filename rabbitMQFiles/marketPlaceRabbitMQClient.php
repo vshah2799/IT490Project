@@ -1,30 +1,24 @@
-#!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('../path.inc');
+require_once('../get_host_info.inc');
+require_once('../rabbitMQLib.inc');
 
-$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
-if (isset($argv[1]))
-{
-  $msg = $argv[1];
-}
-else
-{
-  $msg = "test message";
-}
+
+$client = new rabbitMQClient("marketRabbitMQ.ini", "testServer");
 
 $request = array();
-$request['type'] = "Login";
-$request['username'] = "steve";
-$request['password'] = "password";
-$request['message'] = $msg;
+if($argv[1] == "Market1"){
+    $request['carName'] = $argv[2];
+    $request['carDesc'] = $argv[3];
+    $request['dealer'] =  $argv[4];
+    $request['contact'] = $argv[5];
+    $request['type'] = "Market1";
+
+}elseif ($argv[1] == "Market2"){
+    $request['type'] = "Market2";
+}
+
 $response = $client->send_request($request);
-//$response = $client->publish($request);
 
-echo "client received response: ".PHP_EOL;
-print_r($response);
-echo "\n\n";
-
-echo $argv[0]." END".PHP_EOL;
-
+var_dump($response);
+return $response;

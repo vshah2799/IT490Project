@@ -30,10 +30,10 @@
             echo $carDesc1;
 
             if((strlen($carName1))&&(strlen($carDesc1))&&(strlen($dealer1))&&strlen($contact1)){
-                $sql ="INSERT INTO `carssells`(`carName`, `carDesc`, `ownerName`, `contactInfo`) VALUES ('$carName1','$carDesc1','$dealer1','$contact1');";
-                $result = mysqli_query($conn, $sql);
-                $showAlert = true;
-                if($showAlert){
+
+                $sql = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market1\" $carName1, $carDesc1, $dealer1, $contact1");
+
+                if($sql){
                     echo '<div class="alert alert-success alert-dismissible fade show" role="success">
                         <strong>Success! </strong> Car succesfully listed!
                     
@@ -57,16 +57,15 @@
 
         //getting info abt cars to display
 
+            $result = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market2\"");
 
-        
-
-    $sql = "SELECT * FROM `carssells`";
-            $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_assoc($result)){
             $carName = $row['carName'];
             $carDesc = $row['carDesc'];
             $dealer = $row['ownerName'];
             $contact = $row['contactInfo'];
+
+
             echo'
             <div class="card mb-3">
                 <div class="row g-5">
