@@ -22,9 +22,6 @@
             //inserting info abt car
 
 
-
-
-
             $carName1 =  $_POST['carName'];
             $carDesc1 =  $_POST['carDesc'];
             $dealer1 =  $_POST['ownerName'];
