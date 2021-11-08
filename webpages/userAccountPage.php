@@ -16,6 +16,9 @@
 				<h1>User Dashboard</h1>
 			</div>
 		</div>
+		
+		User <?php //echo $_POST["user"]; ?><br>
+		Pass <?php //echo $_POST["pass"]; ?><br>
 
 		<h2>Update Information</h2>
 
@@ -42,9 +45,10 @@
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
-		<button type="submit" onclick="displayCookie()">Test Cookie</button>
+		<!-- <button type="submit" onclick="displayCookie()">Test Cookie</button> -->
 
 		<script>
+			/*
 			function displayCookie()
 			{
 				// getCookie();
@@ -57,6 +61,20 @@
 					alert("Cookie was indeed written to\n");
 				}
 			}
+			*/
+			function readCookie(name)
+			{
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(";");
+				for (let i = 0; i < ca.length; i++)
+				{
+					var c = ca[i];
+					while (c.charAt(0) == " ") c = c.substring(1, c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+				}
+				return null;
+			}
+			alert(readCookie("User") + readCookie("Pass"));
 		</script>
 	</body>
 </html>
