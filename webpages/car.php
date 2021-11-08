@@ -1,3 +1,32 @@
+<?php include 'header.php';
+            include 'connect.php';
+            $id = $_GET['tID'];
+
+
+
+            //getting car info to display
+
+
+
+
+            $sql = "SELECT * FROM `carssells` WHERE carID=$id";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_assoc($result)){
+                $carName = $row['carName'];
+                $carDesc = $row['carDesc'];
+                $dealer = $row['ownerName'];
+                $contact = $row['contactInfo'];
+                echo'<div class="card mb-3">
+                <img src="https://source.unsplash.com/1500x300/?f1" style="window.screen.width;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">'.$carName.'</h5>
+                    <p class="card-text">'.$carDesc.'</p>
+                    <p class="card-text"><small class="text-muted"><b>Dealer Name: </b>'.$dealer.'<b> Contact: </b>'.$contact.'</small></p>
+                </div>
+            </div>';
+            }
+        ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,31 +52,12 @@
         margin-left: 75px;
     }
     </style>
-    <title>Thread</title>
+    <title><?php echo $carName; ?></title>
 
 </head>
 
 <body>
-    <?php include 'header.php';
-            include 'connect.php';
-            $id = $_GET['tID'];
-            $sql = "SELECT * FROM `carssells` WHERE carID=$id";
-            $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_assoc($result)){
-                $carName = $row['carName'];
-                $carDesc = $row['carDesc'];
-                $dealer = $row['ownerName'];
-                $contact = $row['contactInfo'];
-                echo'<div class="card mb-3">
-                <img src="https://source.unsplash.com/1500x300/?f1" style="window.screen.width;" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">'.$carName.'</h5>
-                    <p class="card-text">'.$carDesc.'</p>
-                    <p class="card-text"><small class="text-muted"><b>Dealer Name: </b>'.$dealer.'<b> Contact: </b>'.$contact.'</small></p>
-                </div>
-            </div>';
-            }
-        ?>
+    
 
     
     <?php include 'footer.php';?>
