@@ -1,7 +1,7 @@
 <?php
-require '../vendor/phpmailer/phpmailer/src/Exception.php';
-require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/Exception.php';
+require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '/home/vshah/Desktop/IT490Project/vendor/phpmailer/phpmailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -43,7 +43,7 @@ try {
     
     $errorString = "EMAIL_PHP: Message could not be sent. Mailer Error: {$mail->ErrorInfo} \n";
     shell_exec("php ~/Desktop/IT490Project/loggingRabbitMQClient.php $errorString");
-    //echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
 

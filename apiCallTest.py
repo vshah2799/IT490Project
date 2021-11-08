@@ -17,7 +17,7 @@ except Error as e:
 cursor = conn.cursor()
 
 for years in range(1):
-    print(years+2001)
+    print(years+2002)
     yearString = str(years + 2001)
     try:
         makesUrl = 'https://api.nhtsa.gov/products/vehicle/makes?modelYear=' + yearString + '&issueType=r'
