@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `threads`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS 'carsells';
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  userID varchar(30) PRIMARY KEY NOT NULL,
-  email varchar(75) NOT NULL,
-  firstName varchar(30) DEFAULT NULL,
-  lastName varchar(30) DEFAULT NULL,
-  password varchar(70) NOT NULL,
-  address varchar(255) DEFAULT NULL,
-  make varchar(50) DEFAULT NULL,
-  model varchar(50) DEFAULT NULL,
-  year int (4) DEFAULT NULL,
-  recallFixed BOOLEAN DEFAULT false;
+CREATE TABLE 'carsells' (
+  carID INT (7) PRIMARY KEY AUTO_INCREMENT DEFAULT NULL,
+  carName varchar(255) DEFAULT NULL,
+  catDesc test DEFAULT NULL,
+  ownerName varchar(255) DEFAULT NULL,
+  contactInfo varchar(255) DEFAULT NUll,
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
+
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

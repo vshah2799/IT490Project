@@ -26,7 +26,9 @@
             $carDesc1 =  $_POST['carDesc'];
             $dealer1 =  $_POST['ownerName'];
             $contact1 =  $_POST['contactInfo'];
+
             echo $carDesc1;
+
             if((strlen($carName1))&&(strlen($carDesc1))&&(strlen($dealer1))&&strlen($contact1)){
                 $sql ="INSERT INTO `carssells`(`carName`, `carDesc`, `ownerName`, `contactInfo`) VALUES ('$carName1','$carDesc1','$dealer1','$contact1');";
                 $result = mysqli_query($conn, $sql);
