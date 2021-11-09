@@ -28,8 +28,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/webpages/thread.php">Forums</a>
 	    </li>
-	    <li class="nav-item">
+	<li class="nav-item">
           <a class="nav-link" href="/webpages/signIn.php">Account</a>
+        </li>
+	<li class="nav-item">
+          <a class="nav-link" href="/webpages/signUp.php">Sign Up</a>
         </li>
 
 
