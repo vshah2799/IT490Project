@@ -25,16 +25,11 @@
         <li class="nav-item">
           <a class="nav-link" href="webpages/thread.php">Forums</a>
 	    </li>
-<<<<<<< HEAD
-	<li class="nav-item">
-          <a class="nav-link" href="/webpages/signIn.php">Account</a>
-=======
           <li class="nav-item">
               <a class="nav-link" href="webpages/market.php">Marketplace</a>
           </li>
 	    <li class="nav-item">
           <a class="nav-link" href="webpages/signIn.php">Account</a>
->>>>>>> main
         </li>
 	<li class="nav-item">
           <a class="nav-link" href="/webpages/signUp.php">Sign Up</a>
@@ -45,7 +40,6 @@
     </div>
   </div>
 </nav>
-
 
 
 
