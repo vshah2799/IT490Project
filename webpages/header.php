@@ -124,7 +124,7 @@ if(isset($_POST['loadData'])){
       
 
 
-      // header("location: userAccountPage.php");
+      // header("location: showAccountDetails.php");
     }
 
 

@@ -45,6 +45,7 @@
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
+
 		<!-- <button type="submit" onclick="displayCookie()">Test Cookie</button> -->
 
 		<script>
@@ -78,3 +79,4 @@
 		</script>
 	</body>
 </html>
+
