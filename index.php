@@ -47,5 +47,7 @@
 			<script>
 				document.cookie = "User= ; expires=Mon, 11 Nov 2021 20:47:11 UTC; path=/";
 				document.cookie = "Pass= ; expires=Mon, 11 Nov 2021 20:47:11 UTC; path=/";
+                sessionStorage.setItem('test', 'hello');
+
 			</script>
 		</body>
