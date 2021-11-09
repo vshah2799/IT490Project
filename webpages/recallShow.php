@@ -47,7 +47,7 @@ $make = $_POST['make'];
 $model = $_POST['model'];
 $year = $_POST['year'];
 
-$recallText = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/recallPageRabbitMQClient.php $make $model $year");
+$recallText = shell_exec("php ../rabbitMQFiles/recallPageRabbitMQClient.php $make $model $year");
 
 print($recallText);
 

@@ -1,9 +1,9 @@
 //Returns recall info as a string
 #!/usr/bin/php
 <?php
-require_once('../path.inc');
-require_once('../get_host_info.inc');
-require_once('../rabbitMQLib.inc');
+require_once('/home/vshah/Desktop/IT490Project/path.inc');
+require_once('/home/vshah/Desktop/IT490Project/get_host_info.inc');
+require_once('/home/vshah/Desktop/IT490Project/rabbitMQLib.inc');
 
 
 function requestProcessor($request)
@@ -42,7 +42,7 @@ function requestProcessor($request)
 
 }
 
-$server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("recallRabbitMQ.ini","testServer");
 
 $server->process_requests('requestProcessor');
 exit();
