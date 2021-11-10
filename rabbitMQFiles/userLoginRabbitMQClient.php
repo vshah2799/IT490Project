@@ -8,14 +8,14 @@ require_once('../get_host_info.inc');
 require_once('../rabbitMQLib.inc');
 
 
-$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("../loggingRabbitMQ.ini","testServer");
 if (isset($argv[2])) {
   $userID = $argv[1];
   $password = $argv[2];
 }
 else{
   $errorString = "USER_LOGIN_PAGE_CLIENT: Not enough info";
-  shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+  shell_exec("php  ../loggingRabbitMQClient.php \"$errorString\"");
   return $errorString;
 }
 

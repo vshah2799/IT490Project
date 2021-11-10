@@ -7,7 +7,7 @@ require_once('../rabbitMQLib.inc');
 $client = new rabbitMQClient("updateUserInfoRabbitMQ.ini","testServer");
 if (!isset($argv[1])){
     $errorString = "SIGNUP_PAGE_CLIENT: Not enough info";
-    shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+    shell_exec("php  ../loggingRabbitMQClient.php \"$errorString\"");
     return $errorString;
 }
 

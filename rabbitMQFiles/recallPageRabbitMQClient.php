@@ -6,12 +6,12 @@ require_once('../rabbitMQLib.inc');
 //This sends recall information for a car. Need make, model, and yer
 //Data goes in this order: make model year
 //Example call from command line: php recallPageRabbitMQClient.php make model year
-chdir("/home/vshah/Desktop/IT490Project/rabbitMQFiles");
+
 $client = new rabbitMQClient("recallRabbitMQ.ini","testServer");
 if (!isset($argv[3])){
 
     $errorString = "RECALL_PAGE_CLIENT: Not enough info";
-    shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+    shell_exec("php  ../loggingRabbitMQClient.php \"$errorString\"");
     return $errorString;
 }
 

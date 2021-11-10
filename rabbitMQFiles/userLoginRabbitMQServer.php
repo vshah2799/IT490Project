@@ -22,7 +22,7 @@ function requestProcessor($request)
 // Check connection
     if (!$conn) {
     $errorString = "USER_LOGIN_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
-    shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+    shell_exec("php  ../loggingRabbitMQClient.php \"$errorString\"");
     print($errorString);
     die();
     }
@@ -48,7 +48,7 @@ function requestProcessor($request)
 
 }
 
-$server = new rabbitMQServer("loggingRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("userLoginRabbitMQ.ini","testServer");
 $server->process_requests('requestProcessor');
 exit();
 ?>

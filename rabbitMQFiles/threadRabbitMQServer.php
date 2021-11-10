@@ -18,7 +18,7 @@ function requestProcessor($request)
     if (!$conn) {
 
         $errorString = "SIGNUP_PAGE_SERVER: Connection failed: " . mysqli_connect_error();
-        shell_exec("php  ~/Desktop/IT490Project/loggingRabbitMQClient.php \"$errorString\"");
+        shell_exec("php  ../loggingRabbitMQClient.php \"$errorString\"");
         print($errorString);
         die();
 

@@ -10,10 +10,10 @@ require_once('../get_host_info.inc');
 require_once('../rabbitMQLib.inc');
 
 
-$client = new rabbitMQClient("loggingRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("signUpRabbitMQ.ini","testServer");
 if (!isset($argv[1])){
     $errorString = "SIGNUP_PAGE_CLIENT: Not enough info";
-    shell_exec("php loggingRabbitMQClient.php \"$errorString\"");
+    shell_exec("php ../loggingRabbitMQClient.php \"$errorString\"");
     return $errorString;
 }
 

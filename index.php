@@ -48,5 +48,4 @@
 
 			</script>
 
-        <a href="dbFiles/emailCaller.php">Notfication Caller</a>
         </body>
