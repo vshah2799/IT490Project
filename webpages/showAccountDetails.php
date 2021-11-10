@@ -1,6 +1,16 @@
+<script>
+    userName = sessionStorage.getItem('user');
+    password = sessionStorage.getItem('pass');
+
+    if(userName.length === 0 || password.length === 0){
+        window.location.href = "signIn.php";
+    }
+</script>
 <?php
 
-$query = shell_exec("php ../rabbitMQFiles/showUserDataRabbitMQClient.php ");
+$user = "<script>document.writeln(userName);</script>";
+
+$query = shell_exec("php ../rabbitMQFiles/showUserDataRabbitMQClient.php $user");
 
 $username = $query['userID'];
 $email = $query['email'];
@@ -31,6 +41,8 @@ if($query['recallFixed'] == 1){
 <?php include 'header.php';?>
 
 <body>
+
+<a class="btn btn-primary" href="updateAccountDetails.php" role="button">Update Account Details</a>
 
 <div class="container-lg">
     <form class="row g-3" method="post" action="signUpNext.php">
@@ -74,13 +86,6 @@ if($query['recallFixed'] == 1){
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
-
-<script>
-
-    if((sessionStorage.getItem("userID").length>0) && (sessionStorage.getItem("pass").length>0)) {
-        window.location.href = "signIn.php";
-
 </script>
 </body>
 </html>

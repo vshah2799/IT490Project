@@ -18,9 +18,11 @@
               <a class="nav-link" href="market.php">Marketplace</a>
           </li>
             <li class="nav-item">
-          <a class="nav-link" href="signUp.php">Account</a>
+          <a class="nav-link" href="signUp.php">Sign In/Sign Up</a>
         </li>
-
+          <li class="nav-item">
+              <a class="nav-link" href="showAccountDetails.php">Account</a>
+          </li>
 
       </ul>
     </div>

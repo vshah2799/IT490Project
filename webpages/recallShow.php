@@ -42,7 +42,6 @@
 
 
 <?php
-
 $make = $_POST['make'];
 $model = $_POST['model'];
 $year = $_POST['year'];

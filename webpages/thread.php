@@ -30,7 +30,7 @@
 <body>
     <?php include 'header.php';
           $id = $_GET['tID'];
-          $row = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread1\" $id");
+          $row = shell_exec("php ../rabbitMQFiles/threadRabbitMQClient.php \"Thread1\" $id");
           $thread = $row['topic'];
           $desc = $row['threadDesc'];
 
@@ -44,7 +44,7 @@
             $comm = $_POST['desc'];
 
 
-            $sql = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread2\" $id");
+            $sql = shell_exec("php ../rabbitMQFiles/threadRabbitMQClient.php \"Thread2\" $id");
 
             $showAlert = true;
             if($showAlert){
@@ -83,7 +83,7 @@
             $count =0;
             $id = $_GET['tID'];
 
-            $result = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread3\" $id");
+            $result = shell_exec("php ../rabbitMQFiles/threadRabbitMQClient.php \"Thread3\" $id");
 
             while($row = mysqli_fetch_assoc($result)){
                 $count++;

@@ -49,7 +49,7 @@
             $titleTopic = $_POST['title'];
             $tDesc = $_POST['desc'];
 
-            $sql = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread4\" $titleTopic $tDesc" );
+            $sql = shell_exec("php ../rabbitMQFiles/threadRabbitMQClient.php \"Thread4\" $titleTopic $tDesc" );
             if($sql == true){
                 $showAlert = true;
             }
@@ -96,7 +96,7 @@
             $count = 0;
             $noResult = true;
             // $id = $_GET['catid'];
-            $result = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/threadRabbitMQClient.php \"Thread5\"");
+            $result = shell_exec("php ../rabbitMQFiles/threadRabbitMQClient.php \"Thread5\"");
 
             while($row = mysqli_fetch_assoc($result)){
                 $noResult = false;

@@ -24,6 +24,7 @@ $result = shell_exec("php ../rabbitMQFiles/signUpRabbitMQClient.php $user $pass"
 if ($result)
 {
 	echo "SUCCESS, SIGNED IN";
+	header("refresh: 2; url=showAccountDetails.php");
 }
 else
 {

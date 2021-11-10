@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<script>
+    if((sessionStorage.getItem("user").length>0) && (sessionStorage.getItem("pass").length>0)) {
+        window.location.href = "signIn.php";
+    }
+</script>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -61,14 +66,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
-
-<script>
-
-    if((sessionStorage.getItem("userID").length>0) && (sessionStorage.getItem("pass").length>0)) {
-        window.location.href = "signIn.php";
-    }
-
 </script>
 </body>
 </html>

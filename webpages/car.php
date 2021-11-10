@@ -1,16 +1,9 @@
 <?php include 'header.php';
-            include 'connect.php';
             $id = $_GET['tID'];
 
-
-
             //getting car info to display
+            $result = shell_exec("php ../rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market3\" $id ");
 
-
-
-
-            $sql = "SELECT * FROM `carssells` WHERE carID=$id";
-            $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_assoc($result)){
                 $carName = $row['carName'];
                 $carDesc = $row['carDesc'];

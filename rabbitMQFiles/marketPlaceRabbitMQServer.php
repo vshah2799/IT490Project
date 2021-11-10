@@ -38,6 +38,10 @@ function requestProcessor($request)
     }elseif ($request['type'] == "Market2"){
         $sql = "SELECT * FROM carsells";
         return mysqli_query($conn, $sql);
+    }elseif ($request['type' == "Market3"]){
+        $carID = $request['carID'];
+        $sql = "SELECT * FROM carsells WHERE carID='$carID'";
+        return mysqli_query($conn, $sql);
     }
 
     return false;

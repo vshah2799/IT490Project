@@ -25,7 +25,7 @@
 
             if((strlen($carName1))&&(strlen($carDesc1))&&(strlen($dealer1))&&strlen($contact1)){
 
-                $sql = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market1\" $carName1, $carDesc1, $dealer1, $contact1");
+                $sql = shell_exec("php ../rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market1\" $carName1, $carDesc1, $dealer1, $contact1");
 
                 if($sql){
                     echo '<div class="alert alert-success alert-dismissible fade show" role="success">
@@ -48,7 +48,7 @@
 
         //getting info abt cars to display
 
-            $result = shell_exec("php ~/Desktop/IT490Project/rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market2\"");
+            $result = shell_exec("php ../rabbitMQFiles/marketPlaceRabbitMQClient.php \"Market2\"");
 
             while($row = mysqli_fetch_assoc($result)){
             $carName = $row['carName'];

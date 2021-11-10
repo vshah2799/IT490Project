@@ -31,8 +31,9 @@
 	 	</body>
 <script>
 
-    sessionStorage.setItem('user', '');
-    sessionStorage.setItem('pass', '';
+    if(sessionStorage.getItem('user').length>0 || sessionStorage.getItem('pass')>0){
+        window.location.href = "signInNextVerify.php";
+    }
 
     </script>
 </html>

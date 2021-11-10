@@ -16,6 +16,9 @@ if($argv[1] == "Market1"){
 
 }elseif ($argv[1] == "Market2"){
     $request['type'] = "Market2";
+}elseif ($argv[1] == "Market3"){
+    $request['type'] = "Market3";
+    $request['carID'] = $argv[2];
 }
 
 $response = $client->send_request($request);

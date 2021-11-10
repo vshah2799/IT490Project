@@ -1,0 +1,7 @@
+php marketPlaceRabbitMQServer.php
+php recallPageRabbitMQServer.php
+php showUserDataRabbitMQServer.php
+php signUpRabbitMQServer.php
+php threadRabbitMQServer.php
+php updateUserInfoRabbitMQServer.php
+php userLoginRabbitMQServer.php
