@@ -9,19 +9,16 @@
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/webpages/recalls.php">Check Recall</a>
+          <a class="nav-link" href="recalls.php">Check Recall</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/webpages/threadlist.php">Forums</a>
+          <a class="nav-link" href="threadlist.php">Forums</a>
             </li>
           <li class="nav-item">
-              <a class="nav-link" href="/webpages/market.php">Marketplace</a>
+              <a class="nav-link" href="market.php">Marketplace</a>
           </li>
             <li class="nav-item">
-          <a class="nav-link" href="/webpages/signIn.php">Account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/webpages/signUp.php">Sign Up</a>
+          <a class="nav-link" href="signUp.php">Account</a>
         </li>
 
 

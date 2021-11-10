@@ -11,7 +11,6 @@
 
 <body>
     <?php
-    include 'connect.php';
     include 'header.php';
     $showAlert = false;
     if(isset($_POST['carSend'])){

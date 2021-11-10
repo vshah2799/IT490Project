@@ -11,22 +11,22 @@
 <body>
 <div class="container-lg">
 
-    <form class="row g-3" method="post" action="signUpNext.php">
+    <form class="row g-3" method="post" action="updateAccountDetailsNext.php">
         <div class="col-md-4">
             <label for="validationDefault02" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" required>
+            <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Firstname</label>
-            <input type="text" class="form-control" id="firstname" name="firstname"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" class="form-control" id="firstname" name="firstname"  aria-describedby="inputGroupPrepend2">
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Lastname</label>
-            <input type="text" class="form-control" id="lastname" name="lastname"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" class="form-control" id="lastname" name="lastname"  aria-describedby="inputGroupPrepend2">
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" name="address"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" class="form-control" id="address" name="address"  aria-describedby="inputGroupPrepend2">
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Make</label>
@@ -51,11 +51,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
-<script>
-    if((sessionStorage.getItem("userID").length>0) && (sessionStorage.getItem("pass").length>0)) {
-        window.location.href = "signIn.php";
-    }
-</script>
+
 </body>
 </html>
 
