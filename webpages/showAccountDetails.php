@@ -1,3 +1,24 @@
+<?php
+
+$query = shell_exec("php ../rabbitMQFiles/showUserDataRabbitMQClient.php ");
+
+$username = $query['userID'];
+$email = $query['email'];
+$firstname = $query['firstname'];
+$lastname = $query['lastname'];
+$address = $query['address'];
+$make = $query['make'];
+$model = $query['model'];
+$year = $query['year'];
+if($query['recallFixed'] == 1){
+    $recallFixed = "Yes";
+}else{
+    $recallFixed = "No";
+}
+?>
+s
+
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -45,46 +66,39 @@
     <form class="row g-3" method="post" action="signUpNext.php">
         <div class="col-md-4">
             <label for="make" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
+            <input type="text" readonly class="form-control" id="username" name="username" required value=<?php echo $username?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefault02" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" required>
+            <input type="text" readonly class="form-control" id="email" name="email" required value=<?php echo $email?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Firstname</label>
-            <input type="text" class="form-control" id="firstname" name="firstname"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" readonly class="form-control" id="firstname" name="firstname"  aria-describedby="inputGroupPrepend2" required value=<?php echo $firstname?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Lastname</label>
-            <input type="text" class="form-control" id="lastname" name="lastname"  aria-describedby="inputGroupPrepend2" required>
-        </div>
-        <div class="col-md-4">
-            <label for="validationDefaultUsername" class="form-label">Password</label>
-            <input type="text" class="form-control" id="password" name="password"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" readonly class="form-control" id="lastname" name="lastname"  aria-describedby="inputGroupPrepend2" required value=<?php echo $lastname?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" name="address"  aria-describedby="inputGroupPrepend2" required>
+            <input type="text" readonly class="form-control" id="address" name="address"  aria-describedby="inputGroupPrepend2" required value=<?php echo $address?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Make</label>
-            <input type="text" class="form-control" id="make" name="make"  aria-describedby="inputGroupPrepend2">
+            <input type="text" readonly class="form-control" id="make" name="make"  aria-describedby="inputGroupPrepend2" value=<?php echo $make?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Model</label>
-            <input type="text" class="form-control" id="model" name="model"  aria-describedby="inputGroupPrepend2">
+            <input type="text" readonly class="form-control" id="model" name="model"  aria-describedby="inputGroupPrepend2" value=<?php echo $model?>>
         </div>
         <div class="col-md-4">
             <label for="validationDefaultUsername" class="form-label">Year</label>
-            <input type="text" class="form-control" id="year" name="year"  aria-describedby="inputGroupPrepend2">
+            <input type="text" readonly class="form-control" id="year" name="year"  aria-describedby="inputGroupPrepend2" value=<?php echo $year?>>
         </div>
         <div class="col-md-4">
-            <label for="validationDefaultUsername" class="form-label">Is your car's recall issue fixed? ENTER "true" OR "false" without the quotes</label>
-            <input type="text" class="form-control" id="recallFixed" name="recallFixed"  aria-describedby="inputGroupPrepend2">
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <label for="validationDefaultUsername" class="form-label">Is your car's recall issue fixed?</label>
+            <input type="text" readonly class="form-control" id="recallFixed" name="recallFixed"  aria-describedby="inputGroupPrepend2" value=<?php echo $recallFixed?>>
         </div>
     </form>
 </div>
