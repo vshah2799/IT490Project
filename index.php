@@ -20,16 +20,16 @@
 
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/webpages/recalls.php">Check Recall</a>
+          <a class="nav-link" href="webpages/recalls.php">Check Recall</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/webpages/thread.php">Forums</a>
+          <a class="nav-link" href="webpages/thread.php">Forums</a>
 	    </li>
           <li class="nav-item">
-              <a class="nav-link" href="/webpages/market.php">Marketplace</a>
+              <a class="nav-link" href="webpages/market.php">Marketplace</a>
           </li>
 	    <li class="nav-item">
-          <a class="nav-link" href="/webpages/signIn.php">Account</a>
+          <a class="nav-link" href="webpages/signUp.php">Account</a>
         </li>
 
       </ul>
