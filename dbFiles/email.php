@@ -42,7 +42,7 @@ try {
 } catch (Exception $e) {
     
     $errorString = "EMAIL_PHP: Message could not be sent. Mailer Error: {$mail->ErrorInfo} \n";
-    shell_exec("php ~/Desktop/IT490Project/loggingRabbitMQClient.php $errorString");
+    shell_exec("php ~/Desktop/IT490Project/RABBITMQloggingRabbitMQClient.php $errorString");
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 

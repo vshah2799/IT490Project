@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0) {
     }
 } else {
     $errorString = "EMAIL_CALLER: No emails sent \n";
-    shell_exec("php ~/Desktop/IT490Project/loggingRabbitMQClient.php $errorString");
+    shell_exec("php ~/Desktop/IT490Project/RABBITMQloggingRabbitMQClient.php $errorString");
 }
 
 mysqli_close($conn);
