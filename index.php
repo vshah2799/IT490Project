@@ -29,11 +29,7 @@
               <a class="nav-link" href="/webpages/market.php">Marketplace</a>
           </li>
 	    <li class="nav-item">
-<<<<<<< HEAD
           <a class="nav-link" href="/webpages/signIn.php">Account</a>
-=======
-          <a class="nav-link" href="webpages/signUp.php">Account</a>
->>>>>>> f3b2adea60a80ccefb30f9fd7536c629f9bd26c3
         </li>
 
       </ul>
