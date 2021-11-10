@@ -30,7 +30,7 @@
                     <a class="nav-link" href="market.php">Marketplace</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="signIn.php">Account</a>
+                    <a class="nav-link" href="signUp.php">Account</a>
                 </li>
 
 
@@ -89,6 +89,15 @@
     </form>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
+
+<script>
+
+    if((sessionStorage.getItem("userID").length>0) && (sessionStorage.getItem("pass").length>0)) {
+        window.location.href = "signIn.php";
+    }
+
+</script>
 </body>
 </html>
