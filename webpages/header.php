@@ -1,4 +1,4 @@
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Ooreo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
           <a class="nav-link" href="/webpages/recalls.php">Check Recall</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/webpages/thread.php">Forums</a>
+          <a class="nav-link" href="/webpages/threadlist.php">Forums</a>
             </li>
           <li class="nav-item">
               <a class="nav-link" href="/webpages/market.php">Marketplace</a>
