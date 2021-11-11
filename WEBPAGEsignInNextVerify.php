@@ -22,7 +22,7 @@
 $user = "<script>document.writeln(tempUser);</script>";
 $pass = "<script>document.writeln(tempPass);</script>";
 
-$result = shell_exec("php RABBITMQuserLoginRabbitMQClient.php " . $user . " " . $pass);
+$result = shell_exec("php RABBITMQuserLoginRabbitMQClient.php \"$user\" \"$pass\"");
 
 if ($result)
 {
