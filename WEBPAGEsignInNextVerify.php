@@ -19,6 +19,9 @@
 $user = "<script>document.writeln(tempUser);</script>";
 $pass = "<script>document.writeln(tempPass);</script>";
 
+$user = "vTest";
+$pass = "vTest";
+
 $result = shell_exec("php RABBITMQuserLoginRabbitMQClient.php $user $pass");
 
 if ($result)
