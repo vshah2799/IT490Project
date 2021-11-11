@@ -8,7 +8,7 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
 
-$client = new rabbitMQClient("RABBITMQloggingRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("RABBITMQuserLoginRabbitMQ.ini","testServer");
 if (isset($argv[2])) {
   $userID = $argv[1];
   $password = $argv[2];
