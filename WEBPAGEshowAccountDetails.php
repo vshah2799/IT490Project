@@ -10,7 +10,7 @@
 
 $user = "<script>document.writeln(userName);</script>";
 
-$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php $user");
+$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
 
 $username = $query['userID'];
 $email = $query['email'];
@@ -45,7 +45,7 @@ if($query['recallFixed'] == 1){
 <a class="btn btn-primary" href="WEBPAGEupdateAccountDetails.php" role="button">Update Account Details</a>
 
 <div class="container-lg">
-    <form class="row g-3" method="post" action="WEBPAGEsignUpNext.php">
+    <form class="row g-3" method="post" action="">
         <div class="col-md-4">
             <label for="make" class="form-label">Username</label>
             <input type="text" readonly class="form-control" id="username" name="username" required value=<?php echo $username?>>
