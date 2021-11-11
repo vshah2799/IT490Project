@@ -19,6 +19,9 @@
 $user = "<script>document.writeln(tempUser);</script>";
 $pass = "<script>document.writeln(tempPass);</script>";
 
+alert($user);
+alert($pass):
+
 $user = "vTest";
 $pass = "vTest";
 
