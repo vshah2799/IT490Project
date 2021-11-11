@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <script>
     if((sessionStorage.getItem("user").length>0) && (sessionStorage.getItem("pass").length>0)) {
-        window.location.href = "signIn.php";
+        window.location.href = "WEBPAGEsignIn.php";
     }
 </script>
 

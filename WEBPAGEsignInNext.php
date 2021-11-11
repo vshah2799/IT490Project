@@ -35,5 +35,5 @@
 	sessionStorage.setItem("user", user);
 	sessionStorage.setItem("pass", pass);
 
-    window.location.href = "signInNextVerify.php";
+    window.location.href = "WEBPAGEsignInNextVerify.php";
 </script>
