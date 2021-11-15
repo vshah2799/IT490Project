@@ -27,7 +27,7 @@ function requestProcessor($request)
 
     $userID = $request['userID'];
 	
-    print("$userID \n\n\n\n");
+    print($userID);
 
     $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ?)");
     $selectStmt->bind_param("s", $userID);
@@ -36,10 +36,10 @@ function requestProcessor($request)
     $result = $selectStmt->get_result();
     $showUserText = $result->fetch_assoc();
     $returnArray = array(
-        "userID"     => $showUserText['userID'],
+	"userID"     => $showUserText['userID'],
+	"email" => $showUserText['email'],
         "firstName"  => $showUserText['firstName'],
         "lastName"   => $showUserText['lastName'],
-        "password"   => $showUserText['password'],
         "address"    => $showUserText['address'],
         "make"       => $showUserText['make'],
         "model"      => $showUserText['model'],

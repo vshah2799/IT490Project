@@ -10,24 +10,24 @@
 <?php
 
 $user = $_POST['user'];
-print($user);
-$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php test");
 
-print("Username: ". $query['userID']);
-print("Email " . $query['email']);
-print("Firstname " . $query['firstname']);
-print("Lastname " . $query['lastname']);
-print("Address " . $query['address']);
-print("Make " . $query['make']);
-print("Model " . $query['model']);
-print("Year " . $query['year']);
-if($query['recallFixed'] == 1){
-    print("Recall fixed: " . $recallFixed = "Yes");
-}else{
-    print("Recall fixed: " . $recallFixed = "No");
-}
+$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
 
+//print ($query['userID']);
+//print("Email: " . $query["email"]);
+//print("Firstname: " . $query["firstName"]);
+//print("Lastname: " . $query["lastName"]);
+//print("Address: " . $query["address"]);
+//print("Make: " . $query["make"]);
+//print("Model: " . $query["model"]);
+//print("Year: " . $query["year"]);
+//if($query["recallFixed"] == 1){
+//    print("Recall fixed: " . $recallFixed = "Yes");
+//}else{
+//    print("Recall fixed: " . $recallFixed = "No");
+//}
 
+print(var_dump($query));
 ?>
 
 

@@ -12,9 +12,8 @@ if (!isset($argv[1])) {
     return $errorString;
 }
 
-
 $request = array();
-$request['userID'] = $argv[1];;
+$request['userID'] = $argv[1];
 
 $response = $client->send_request($request);
 

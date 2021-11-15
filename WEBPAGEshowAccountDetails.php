@@ -1,6 +1,7 @@
 <script>
     if(sessionStorage.getItem('user').length > 0 && sessionStorage.getItem('pass').length > 0){
-       }else{
+    }
+    else{
 	window.location.href = "WEBPAGEsignIn.php";
     }
 </script>
@@ -12,14 +13,14 @@
 
 <script>
     userName = sessionStorage.getItem('user');
-    alert(userName);
-    document.getElementById('user').value= userName
-
+    userName = userName.trim();
+    document.getElementById('user').value = userName;
+  
     var auto_refresh = setInterval(
         function()
         {
             submitform();
-        }, 10000);
+        }, 1000);
 
     function submitform()
     {
