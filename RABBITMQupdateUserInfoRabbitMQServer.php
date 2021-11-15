@@ -35,13 +35,12 @@ function requestProcessor($request)
     $year = $request['year'];
     $recallFixed = $request['recallFixed'];
 
+    print("Got to geting info that's already there");
+    print($userID);
+    $selctStmt = "SELECT * FROM users WHERE userID = '$userID'";
 
-    $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ?)");
-    $selectStmt->bind_param("s", $userID);
-    $selectStmt->execute();
-    print("Got to getting user info that is already there\n");
-    $selectResult = $selectStmt->get_result();
-    $selectArray = $selectResult->fetch_assoc();
+    $result = $conn->query($selctStmt);
+    $selectArray = $result->fetch_assoc();
 
     if(empty($email)){
         $email = $selectArray['email'];
@@ -58,11 +57,11 @@ function requestProcessor($request)
     }if(empty($year)){
         $year = $selectArray['year'];
     }if(empty($recallFixed)){
-        $recallFixed = (int)($selectArray['recallFixed']);
+        $recallFixed = $selectArray['recallFixed'];
     }else{
         $recallFixed = 1;
     }
-    $selectStmt->close();
+    
     print("$email \n");
     print("$fn \n");
     print("$ln \n");
@@ -83,7 +82,7 @@ function requestProcessor($request)
         $conn->close();
         return true;
     }
-    $selectStmt->close();
+    
     $insertStmt->close();
     $conn->close();
 
