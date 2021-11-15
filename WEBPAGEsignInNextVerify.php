@@ -17,8 +17,10 @@
 
 
 <?php
-$user = "<script>document.writeln(tempUser);</script>";
-$pass = "<script>document.writeln(tempPass);</script>";
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+print($user);
+print($pass);
 
 $result = shell_exec("php RABBITMQuserLoginRabbitMQClient.php \"$user\" \"$pass\"");
 

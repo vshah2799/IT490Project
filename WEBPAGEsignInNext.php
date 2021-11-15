@@ -8,14 +8,14 @@
 
 </body>
 
-<div id="user" style="display: none;">
+<div id="user" style="display: none; method=post">
 	<?php
 	$user = $_POST["userName"];
 	echo htmlspecialchars($user);
 	?>
 </div>
 
-<div id="pass" style="display: none;">
+<div id="pass" style="display: none; method=post">
 	<?php
 	$pass = $_POST["passWord"];
 	echo htmlspecialchars($pass);
@@ -35,5 +35,20 @@
 	sessionStorage.setItem("user", user);
 	sessionStorage.setItem("pass", pass);
 
-    window.location.href = "WEBPAGEsignInNextVerify.php";
 </script>
+
+<?php
+
+$result = shell_exec("php RABBITMQuserLoginRabbitMQClient.php \"$user\" \"$pass\"");
+
+if ($result)
+{
+    echo "SUCCESS, SIGNED IN";
+    header("refresh: 10; url=WEBPAGEshowAccountDetails.php");
+}
+else
+{
+    echo "SIGN IN FAILED, YOU WILL BE REDIRECTED IN 10 SECONDS";
+    header("refresh: 10; url=WEBPAGEsignIn.php");
+}
+

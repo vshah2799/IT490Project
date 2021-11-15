@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
-
 <script>
-    $data = sessionStorage.getItem('test');
-    alert($data);
+
+    function sayHelloWorld() {
+        var hello = "hello";
+        var world = "world";
+        window.location.href = "test2.php?w1=" + hello + "&w2=" + world;
+    }
+
 </script>
 
-</html>
+
