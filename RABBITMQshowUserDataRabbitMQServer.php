@@ -26,6 +26,8 @@ function requestProcessor($request)
 //******************************************************************************************/
 
     $userID = $request['userID'];
+	
+    print("$userID \n\n\n\n");
 
     $selectStmt = $conn->prepare("SELECT * FROM users WHERE (userID = ?)");
     $selectStmt->bind_param("s", $userID);
@@ -47,7 +49,7 @@ function requestProcessor($request)
 
     $selectStmt->close();
     $conn->close();
-
+    var_dump($returnArray);
     return $returnArray;
 
 }

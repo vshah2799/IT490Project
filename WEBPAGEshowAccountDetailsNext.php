@@ -10,8 +10,8 @@
 <?php
 
 $user = $_POST['user'];
-
-$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
+print($user);
+$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php test");
 
 $username = $query['userID'];
 $email = $query['email'];

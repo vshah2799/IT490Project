@@ -1,26 +1,25 @@
 <script>
     if(sessionStorage.getItem('user').length > 0 && sessionStorage.getItem('pass').length > 0){
-        window.location.href = "WEBPAGEshowAccountDetailsNext.php";
-    }else{
+       }else{
 	window.location.href = "WEBPAGEsignIn.php";
     }
 </script>
 
 <form  name="myForm" id="myForm" action="WEBPAGEshowAccountDetailsNext.php" method="POST">
-    <input type="hidden" name="user" id="pass" value=""/>
+    <input type="hidden" name="user" id="user" value=""/>
     <input type="hidden" type="submit" value="Submit" />
 </form>
 
 <script>
-    userName = sessionStorage.getItem('user').value;
-
+    userName = sessionStorage.getItem('user');
+    alert(userName);
     document.getElementById('user').value= userName
 
     var auto_refresh = setInterval(
         function()
         {
             submitform();
-        }, 1000);
+        }, 10000);
 
     function submitform()
     {
