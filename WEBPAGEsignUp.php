@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <script>
-    if((sessionStorage.getItem("user").length>0) && (sessionStorage.getItem("pass").length>0)) {
-        window.location.href = "WEBPAGEsignIn.php";
-    }
+    //if((sessionStorage.getItem('user').length>0) && (sessionStorage.getItem('pass').length>0)) {
+      //  window.location.href = "WEBPAGEsignIn.php";
+    //}
 </script>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -62,9 +62,10 @@
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Submit</button>
         </div>
+        <a  class="btn btn-primary mx-5" href="WEBPAGEsignIn.php" role="button">Sign In</a>
     </form>
-</div>
 
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 </script>
 </body>

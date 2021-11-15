@@ -3,14 +3,14 @@
     password = sessionStorage.getItem('pass');
     alert(sessionStorage.getItem('user'));
     if(userName.length == 0 || password.length == 0){
-        window.location.href = "WEBPAGEsignUp.php";
+        window.location.href = "WEBPAGEsignIn.php";
     }
 </script>
 <?php
 
 $user = "<script>document.writeln(userName);</script>";
 
-//$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
+$query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
 
 $username = $query['userID'];
 $email = $query['email'];

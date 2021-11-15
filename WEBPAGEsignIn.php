@@ -1,3 +1,7 @@
+<script>
+    sessionStorage.setItem('user', '');
+    sessionStorage.setItem('pass', '');
+</script>
 <!DOCTYPE html>
 	<html>
 	<?php include 'WEBPAGEheader.php'; ?>
