@@ -6,9 +6,10 @@
         window.location.href = "WEBPAGEsignIn.php";
     }
 </script>
+
 <?php
 
-$user = "<script>document.writeln(userName);</script>";
+$user = $_POST['user'];
 
 $query = shell_exec("php RABBITMQshowUserDataRabbitMQClient.php \"$user\"");
 
