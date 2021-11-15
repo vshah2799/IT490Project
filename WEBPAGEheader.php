@@ -23,6 +23,9 @@
           <li class="nav-item">
               <a class="nav-link" href="WEBPAGEshowAccountDetails.php">Account</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="WEBPAGElogout.php">Logout</a>
+          </li>
 
       </ul>
     </div>
