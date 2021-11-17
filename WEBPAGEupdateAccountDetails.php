@@ -62,9 +62,9 @@
 </div>
 
 <script>
-    userName = sessionStorage.getItem('username');
+    userName = sessionStorage.getItem('user');
     userName = userName.trim();
-    document.getElementById('user').value = userName;
+    document.getElementById('username').value = userName;
 </script>
 
 

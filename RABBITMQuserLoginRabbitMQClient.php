@@ -24,7 +24,7 @@ $request['userID'] = $userID;
 $request['password'] = $password;
 
 $response = $client->send_request($request);
-print($response);
+
 return ($response);
 
 

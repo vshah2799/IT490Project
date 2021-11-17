@@ -43,7 +43,7 @@ function requestProcessor($request)
             return true;
         }
     }
-    print("USE NOT VERIFIED");
+    print("USER NOT VERIFIED");
     return false;
 
 }
