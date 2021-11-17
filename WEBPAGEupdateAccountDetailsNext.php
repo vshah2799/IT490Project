@@ -15,7 +15,7 @@
 
 
 <?php
-$username = $_POST['username']
+$username = $_POST['username'];
 !empty($_POST['email']) ? $email = $_POST['email'] : $email = NULL;
 !empty($_POST['firstname']) ? $firstname = $_POST['firstname'] : $firstname = NULL;
 !empty($_POST['lastname']) ? $lastname = $_POST['lastname'] : $lastname = NULL;
